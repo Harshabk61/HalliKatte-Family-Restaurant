@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-serif-accent: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-terracotta: #713B32;
+  --color-terracotta-deep: #542820;
+  --color-clay-brown: #8B493B;
+  --color-cream: #F5EBDD;
+  --color-artwork-white: #FFF9EF;
+  --color-gold-muted: #C49A5A;
+  --color-ink: #2B1915;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: #713B32;
+    color: #2B1915;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom subtle Warli animations */
+@keyframes warli-sway {
+  0%, 100% {
+    transform: rotate(-1.8deg);
+  }
+  50% {
+    transform: rotate(2.2deg);
+  }
+}
+
+@keyframes warli-walk {
+  0%, 100% {
+    transform: translateY(0px) rotate(-1.2deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(1.4deg);
+  }
+}
+
+@keyframes warli-stroll-path {
+  0% {
+    transform: translateX(-24px);
+  }
+  50% {
+    transform: translateX(32px);
+  }
+  100% {
+    transform: translateX(-24px);
+  }
+}
+
+@keyframes warli-smoke {
+  0% {
+    transform: translateY(0px) scaleX(0.95);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-12px) scaleX(1.1);
+    opacity: 0.78;
+  }
+  100% {
+    transform: translateY(-26px) scaleX(0.88);
+    opacity: 0;
+  }
+}
+
+@keyframes warli-bird-glide {
+  0% {
+    transform: translateX(-8%) translateY(0px);
+  }
+  25% {
+    transform: translateX(22%) translateY(-12px);
+  }
+  50% {
+    transform: translateX(52%) translateY(-4px);
+  }
+  75% {
+    transform: translateX(80%) translateY(-14px);
+  }
+  100% {
+    transform: translateX(108%) translateY(2px);
+  }
+}
+
+@keyframes warli-cart-roll {
+  0% {
+    transform: translateX(-38px);
+  }
+  50% {
+    transform: translateX(38px);
+  }
+  100% {
+    transform: translateX(-38px);
+  }
+}
+
+@keyframes warli-wheel-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(240deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes warli-dance {
+  0%, 100% {
+    transform: translateY(0px) rotate(-2.5deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2.5deg);
+  }
+}
+
+@keyframes warli-sun-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes warli-flame-flicker {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleY(1.14) scaleX(0.92);
+    opacity: 1;
+  }
+}
+
+@keyframes cta-sheen {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  35%, 100% {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
+.animate-warli-sway {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: warli-sway 5.8s ease-in-out infinite;
+}
+
+.animate-warli-walk {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: warli-walk 1.5s ease-in-out infinite;
+}
+
+.animate-warli-stroll {
+  animation: warli-stroll-path 18s ease-in-out infinite;
+}
+
+.animate-warli-smoke {
+  animation: warli-smoke 4.2s ease-out infinite;
+}
+
+.animate-warli-bird {
+  animation: warli-bird-glide 24s linear infinite;
+}
+
+.animate-warli-cart {
+  animation: warli-cart-roll 22s ease-in-out infinite;
+}
+
+.animate-warli-wheel {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: warli-wheel-spin 22s ease-in-out infinite;
+}
+
+.animate-warli-dance {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: warli-dance 2s ease-in-out infinite;
+}
+
+.animate-warli-sun {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: warli-sun-spin 42s linear infinite;
+}
+
+.animate-warli-flame {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: warli-flame-flicker 1.6s ease-in-out infinite;
+}
+
+.btn-warli-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-warli-sheen::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 249, 239, 0.35),
+    transparent
+  );
+  animation: cta-sheen 5.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-warli-sway,
+  .animate-warli-walk,
+  .animate-warli-stroll,
+  .animate-warli-smoke,
+  .animate-warli-bird,
+  .animate-warli-cart,
+  .animate-warli-wheel,
+  .animate-warli-dance,
+  .animate-warli-sun,
+  .animate-warli-flame,
+  .btn-warli-sheen::after {
+    animation: none !important;
+  }
+}

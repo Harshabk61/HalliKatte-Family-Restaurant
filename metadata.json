@@ -1,0 +1,6 @@
+{
+  "name": "HalliKatte Family Restaurant",
+  "description": "A Journey Into Our Village — Where Tradition Meets Taste. Authentic family dining, interactive menu, and table reservations in Nelamangala, Bengaluru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
